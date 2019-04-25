@@ -8,5 +8,5 @@ import org.apache.ibatis.annotations.Select;
 public interface UserDao {
 
     @Select("select id, username, password, is_admin AS admin from user where id = #{id}")
-    public User selectUserById(int id);
+    User selectUserById(int id);
 }
