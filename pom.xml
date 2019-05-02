@@ -11,8 +11,8 @@
     <groupId>com.software.test</groupId>
     <artifactId>generating-exam</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>generating-exam</name>
-    <description>Demo project for Spring Boot</description>
+    <stem>generating-exam</stem>
+    <stem>Demo project for Spring Boot</stem>
 
     <properties>
         <java.version>1.8</java.version>

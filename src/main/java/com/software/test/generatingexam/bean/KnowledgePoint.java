@@ -5,7 +5,16 @@ public class KnowledgePoint {
     private int id;
     private String number;
     private int score;
+    private String level;
     private String title;
+
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
+    }
 
     public int getId() {
         return id;
@@ -45,6 +54,7 @@ public class KnowledgePoint {
                 "id=" + id +
                 ", number='" + number + '\'' +
                 ", score=" + score +
+                ", level='" + level + '\'' +
                 ", title='" + title + '\'' +
                 '}';
     }
