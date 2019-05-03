@@ -20,7 +20,7 @@ public class SessionFilter implements Filter {
     private Logger logger = LoggerFactory.getLogger(SessionFilter.class);
 
     //标示符：表示当前用户未登录(可根据自己项目需要改为json样式)
-    String NO_LOGIN = "未登录";
+    String NO_LOGIN = "没有 session";
 
     //不需要登录就可以访问的路径(比如:注册登录等)
     String[] includeUrls = new String[]{"/user"};

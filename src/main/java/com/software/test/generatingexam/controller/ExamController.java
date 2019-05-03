@@ -34,7 +34,10 @@ public class ExamController {
      */
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     public String updateExam(@RequestBody Exam exam) {
-        return JSONObject.toJSONString(examService.update(exam));
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("result", examService.update(exam));
+        jsonObject.put("message", "");
+        return jsonObject.toJSONString();
     }
 
     @RequestMapping(value = "/new")
@@ -42,7 +45,10 @@ public class ExamController {
         Exam exam = new Exam();
         exam.setName(name);
         exam.setUserId(Integer.parseInt(session.getAttribute("userId").toString()));
-        return JSONObject.toJSONString(examService.insert(exam));
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("result", examService.insert(exam));
+        jsonObject.put("message", "");
+        return jsonObject.toJSONString();
     }
 
 }
