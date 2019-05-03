@@ -17,6 +17,14 @@ public interface ExamDao {
     })
     Exam selectById(int id);
 
+    @Select("select id, name, user_id AS userId from examination where user_id = #{userId}")
+    @Results({
+            @Result(property = "id", column = "id"),
+            @Result(property = "questions", column = "id",
+                    many = @Many(select = "com.software.test.generatingexam.dao.ExamDao.findAllByExamId"))
+    })
+    List<Exam> findAllByUserId(int userId);
+
     @Select("select question_id As questionId, number from exam_quest where exam_id = #{examId} order by number")
     List<QuestionMap> findAllByExamId(int examId);
 

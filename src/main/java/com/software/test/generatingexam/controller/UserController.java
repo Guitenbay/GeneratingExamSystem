@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpSession;
+
 @RestController
 public class UserController {
 
@@ -14,8 +16,9 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping("/user")
-    public String getUserById(int id) {
+    public String getUserById(int id, HttpSession session) {
         User user = userService.selectUserById(id);
+        session.setAttribute("userId", user.getId());
         return JSONObject.toJSONString(user);
     }
 

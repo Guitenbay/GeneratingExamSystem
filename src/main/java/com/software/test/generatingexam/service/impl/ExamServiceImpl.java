@@ -21,6 +21,11 @@ public class ExamServiceImpl implements ExamService {
     }
 
     @Override
+    public List<Exam> findAllByUserId(int userId) {
+        return examDao.findAllByUserId(userId);
+    }
+
+    @Override
     public boolean insert(Exam exam) {
         return examDao.insert(exam) != 0;
     }

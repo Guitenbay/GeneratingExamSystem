@@ -6,15 +6,24 @@ import com.software.test.generatingexam.service.ExamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
+
 @RestController
+@RequestMapping("/exam")
 public class ExamController {
 
     @Autowired
     ExamService examService;
 
-    @RequestMapping("/exam")
+    @RequestMapping("")
     public String getExamById(int id) {
         return JSONObject.toJSONString(examService.selectById(id));
+    }
+
+    @RequestMapping("/all")
+    public String getExamsByUserId(HttpSession session) {
+        int userId = Integer.parseInt(session.getAttribute("userId").toString());
+        return JSONObject.toJSONString(examService.findAllByUserId(userId));
     }
 
 
@@ -23,16 +32,16 @@ public class ExamController {
      * @param exam
      * @return
      */
-    @RequestMapping(value = "/updateExam", method = RequestMethod.POST)
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
     public String updateExam(@RequestBody Exam exam) {
         return JSONObject.toJSONString(examService.update(exam));
     }
 
-    @RequestMapping(value = "/newExam")
-    public String newExam(@RequestParam("name") String name, @RequestParam("userId") int userId) {
+    @RequestMapping(value = "/new")
+    public String newExam(@RequestParam("name") String name, HttpSession session) {
         Exam exam = new Exam();
         exam.setName(name);
-        exam.setUserId(userId);
+        exam.setUserId(Integer.parseInt(session.getAttribute("userId").toString()));
         return JSONObject.toJSONString(examService.insert(exam));
     }
 
