@@ -2,7 +2,6 @@ package com.software.test.generatingexam.dao;
 
 import com.software.test.generatingexam.bean.KnowledgePoint;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
