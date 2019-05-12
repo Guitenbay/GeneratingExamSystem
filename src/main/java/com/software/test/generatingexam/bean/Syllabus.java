@@ -1,11 +1,15 @@
 package com.software.test.generatingexam.bean;
 
+import java.util.Date;
+
 public class Syllabus {
 
     private int id;
     private boolean disabled;
     private String level;
     private String version;
+    private Date createdOn;
+    private Date updatedOn;
 
     public int getId() {
         return id;
@@ -39,6 +43,22 @@ public class Syllabus {
         this.version = version;
     }
 
+    public Date getCreatedOn() {
+        return createdOn;
+    }
+
+    public void setCreatedOn(Date createdOn) {
+        this.createdOn = createdOn;
+    }
+
+    public Date getUpdatedOn() {
+        return updatedOn;
+    }
+
+    public void setUpdatedOn(Date updatedOn) {
+        this.updatedOn = updatedOn;
+    }
+
     @Override
     public String toString() {
         return "Syllabus{" +
@@ -46,6 +66,8 @@ public class Syllabus {
                 ", disabled=" + disabled +
                 ", level='" + level + '\'' +
                 ", version='" + version + '\'' +
+                ", createdOn=" + createdOn +
+                ", updatedOn=" + updatedOn +
                 '}';
     }
 }
