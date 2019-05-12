@@ -96,4 +96,10 @@ public class SyllabusServiceTest extends SpringTestCase {
         int length = syllabusService.findAll().size();
         Assert.assertEquals(prevLength, length + 1);
     }
+
+    @Test
+    public void testForNoSuchId(){
+        Syllabus syllabus = syllabusService.getById(100000);
+        Assert.assertNull(syllabus);
+    }
 }
