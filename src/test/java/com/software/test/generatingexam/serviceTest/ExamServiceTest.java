@@ -26,6 +26,11 @@ public class ExamServiceTest extends SpringTestCase {
     }
 
     @Test
+    public void findAllForNoSuchExamTest() {
+        Assert.assertNull(examService.findAllByUserId(999));
+    }
+
+    @Test
     public void findAllForNoExamTest() {
         List<Exam> examList = examService.findAllByUserId(61);
 
@@ -56,5 +61,33 @@ public class ExamServiceTest extends SpringTestCase {
         exam.setUserId(999);
         Assert.assertTrue(!examService.insert(exam));
     }
+
+    @Test
+    public void insertSuccessTest() {
+        Exam exam = new Exam();
+        exam.setName("test0");
+        exam.setUserId(1);
+        Assert.assertTrue(examService.insert(exam));
+    }
+
+    @Test
+    public void updateForNoSuchExamIdTest() {
+        Exam exam = new Exam();
+        exam.setName("test0");
+        exam.setUserId(1);
+        exam.setId(998);
+        Assert.assertTrue(!examService.update(exam));
+    }
+
+    @Test
+    public void updateSuccessTest() {
+        Exam exam = new Exam();
+        exam.setName("test0");
+        exam.setUserId(1);
+        exam.setId(1);
+        Assert.assertTrue(examService.update(exam));
+    }
+
+
 
 }

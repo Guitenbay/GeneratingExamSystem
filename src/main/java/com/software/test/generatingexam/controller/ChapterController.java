@@ -27,7 +27,7 @@ public class ChapterController {
             jsonObject.put("message", "no such id");
             return jsonObject.toJSONString();
         }
-        if (syllabusService.selectById(syllabusId) == null) {
+        if (syllabusService.getById(syllabusId) == null) {
             jsonObject.put("result", false);
             jsonObject.put("message", "no such syllabus");
             return jsonObject.toJSONString();
