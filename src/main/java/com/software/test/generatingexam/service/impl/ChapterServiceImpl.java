@@ -25,7 +25,7 @@ public class ChapterServiceImpl implements ChapterService {
         if (syllabusId < 1) {
             return null;
         }
-        if (syllabusDao.selectById(syllabusId) == null) {
+        if (syllabusDao.getById(syllabusId) == null) {
             return null;
         }
         return chapterDao.findAllBySyllabusId(syllabusId);
