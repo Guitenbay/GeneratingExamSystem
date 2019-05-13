@@ -2,6 +2,7 @@ package com.software.test.generatingexam.service.impl;
 
 import com.software.test.generatingexam.bean.Question;
 import com.software.test.generatingexam.bean.Type;
+import com.software.test.generatingexam.dao.KnowledgePointDao;
 import com.software.test.generatingexam.dao.QuestionDao;
 import com.software.test.generatingexam.dao.TypeDao;
 import com.software.test.generatingexam.service.QuestionService;
@@ -17,6 +18,9 @@ public class QuestionServiceImpl implements QuestionService {
     QuestionDao questionDao;
 
     @Autowired
+    KnowledgePointDao knowledgePointDao;
+
+    @Autowired
     TypeDao typeDao;
 
     @Override
@@ -24,7 +28,7 @@ public class QuestionServiceImpl implements QuestionService {
         if (knowledgePointId < 1) {
             return null;
         }
-        if (questionDao.selectById(knowledgePointId) == null) {
+        if (knowledgePointDao.selectById(knowledgePointId) == null) {
             return null;
         }
         return questionDao.findAllByKnowledgePointId(knowledgePointId);

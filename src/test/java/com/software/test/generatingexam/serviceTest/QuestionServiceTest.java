@@ -36,12 +36,12 @@ public class QuestionServiceTest extends SpringTestCase {
     public void testFindAllQuestionNoSuchPoint() {
         List<Question> questionList = questionService.findAllByKnowledgePointId(1229);
 
-        Assert.assertArrayEquals(questionList.toArray(), new Object[0]);
+        Assert.assertNull(questionList);
     }
 
     @Test
     public void testFindAllQuestionSuccess() {
-        List<Question> questionList = questionService.findAllByKnowledgePointId(3);
+        List<Question> questionList = questionService.findAllByKnowledgePointId(82);
 
         Assert.assertTrue(questionList.size() > 0);
     }
@@ -58,7 +58,7 @@ public class QuestionServiceTest extends SpringTestCase {
 
     @Test
     public void testSelectByIdSuccess() {
-        Question question = questionService.selectById(2);
+        Question question = questionService.selectById(84);
 
         Assert.assertNotNull(question);
     }
