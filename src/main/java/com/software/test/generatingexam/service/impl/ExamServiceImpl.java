@@ -17,16 +17,23 @@ public class ExamServiceImpl implements ExamService {
 
     @Override
     public Exam selectById(int id) {
+        if(id < 1){
+            return null;
+        }
         return examDao.selectById(id);
     }
 
     @Override
     public List<Exam> findAllByUserId(int userId) {
+        if(userId < 1){
+            return null;
+        }
         return examDao.findAllByUserId(userId);
     }
 
     @Override
     public boolean insert(Exam exam) {
+        if(exam.getUserId())
         return examDao.insert(exam) != 0;
     }
 
