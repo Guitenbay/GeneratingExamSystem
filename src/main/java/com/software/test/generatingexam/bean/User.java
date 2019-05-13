@@ -8,6 +8,10 @@ public class User implements Serializable {
     private String username;
     private String password;
     private boolean admin;
+    private boolean enabled;
+    private String email;
+    private String full_name;
+    private String phone;
 
     public int getId() {
         return id;
@@ -38,7 +42,39 @@ public class User implements Serializable {
     }
 
     public void setAdmin(boolean admin) {
-        admin = admin;
+        this.admin = admin;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getFull_name() {
+        return full_name;
+    }
+
+    public void setFull_name(String full_name) {
+        this.full_name = full_name;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 
     @Override
