@@ -8,6 +8,11 @@ public interface SyllabusService {
 
     List<Syllabus> findAll();
 
-    Syllabus selectById(int id);
+    Syllabus getById(int id);
 
+    int insert(Syllabus syllabus);
+
+    int update(String fieldName, Syllabus syllabus);
+
+    int delete(int id);
 }
