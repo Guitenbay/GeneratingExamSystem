@@ -8,4 +8,6 @@ public interface SyllabusService {
 
     List<Syllabus> findAll();
 
+    Syllabus selectById(int id);
+
 }

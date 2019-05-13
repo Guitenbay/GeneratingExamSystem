@@ -18,4 +18,9 @@ public class SyllabusServiceImpl implements SyllabusService {
     public List<Syllabus> findAll(){
         return syllabusDao.findAll();
     }
+
+    @Override
+    public Syllabus selectById(int id) {
+        return syllabusDao.selectById(id);
+    }
 }

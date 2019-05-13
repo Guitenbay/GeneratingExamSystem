@@ -12,4 +12,7 @@ public interface SyllabusDao {
     @Select("select id, is_disabled AS disabled, level, version from syllabus")
     List<Syllabus> findAll();
 
+    @Select("select id, is_disabled AS disabled, level, version from syllabus where id = #{id}")
+    Syllabus selectById(int id);
+
 }
