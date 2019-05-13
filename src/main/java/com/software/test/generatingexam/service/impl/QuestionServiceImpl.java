@@ -21,16 +21,28 @@ public class QuestionServiceImpl implements QuestionService {
 
     @Override
     public List<Question> findAllByKnowledgePointId(int knowledgePointId) {
+        if (knowledgePointId < 1) {
+            return null;
+        }
+        if (questionDao.selectById(knowledgePointId) == null) {
+            return null;
+        }
         return questionDao.findAllByKnowledgePointId(knowledgePointId);
     }
 
     @Override
     public Question selectById(int id) {
+        if (id < 1) {
+            return null;
+        }
         return questionDao.selectById(id);
     }
 
     @Override
     public List<Question> selectByType(String type) {
+        if (typeDao.selectByName(type) == null) {
+            return null;
+        }
         return questionDao.selectByTypeId(typeDao.selectByName(type).getId());
     }
 }
